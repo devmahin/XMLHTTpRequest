@@ -27,3 +27,27 @@ console.log(gen.next())
 console.log(gen.next())
 console.log(gen.next())
 console.log(gen.next())
+
+
+
+
+// all genarator function 
+
+function *name(){} 
+function * name(){} 
+function* name(){} 
+
+
+// class genarator function
+class myclass{
+    *myFun(){
+        
+    }
+}
+
+// object litareal 
+const myclass = {
+    *myFun2(){
+
+    }
+}
