@@ -112,42 +112,83 @@
 
 /////genaretor asyne await
 
-function takeOrder (costomer){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(`Order taken for ${costomer}`)
-        }, 1000);
-    })
-}
+// function takeOrder (costomer){
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(`Order taken for ${costomer}`)
+//         }, 1000);
+//     })
+// }
 
-function procesOrder (costomer){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(`Order progress for ${costomer}`)
-        }, 1000);
-    })
-}
+// function procesOrder (costomer){
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(`Order progress for ${costomer}`)
+//         }, 1000);
+//     })
+// }
 
-function completedOrder (costomer){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(`Order complete for ${costomer}`)
-        }, 1000);
-    })
-}
+// function completedOrder (costomer){
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(`Order complete for ${costomer}`)
+//         }, 1000);
+//     })
+// }
 
 
-async function* solution(customer){
-    yield await takeOrder(customer)
-    yield await procesOrder(customer)
-    yield await completedOrder(customer)
-}
+// async function* solution(customer){
+//     yield await takeOrder(customer)
+//     yield await procesOrder(customer)
+//     yield await completedOrder(customer)
+// }
 
-let gen = solution("mahin")
-// console.log(gen.next())
-gen.next().then(({value}) =>
-    console.log(value))
-gen.next().then(({value}) =>
-    console.log(value))
-gen.next().then(({value}) =>
-    console.log(value))
+// let gen = solution("mahin")
+// // console.log(gen.next())
+// // gen.next().then(({value}) =>
+// //     console.log(value))
+// // gen.next().then(({value}) =>
+// //     console.log(value))
+// // gen.next().then(({value}) =>
+// //     console.log(value))
+
+
+
+// const array = [gen.next(), gen.next(), gen.next()];
+
+// (async function() {
+//     for await (let element of array){
+//         console.log(element)
+//     }
+// })()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////symbol.asyneItaretor
+
+const asyneItaretor ={
+   async *[Symbol.asyncIterator](){
+    yield "Mahin Howlader ";
+    yield "Mahin Howlader ";
+    yield "Mahin Howlader ";
+    yield "Mahin Howlader ";
+    yield "Mahin Howlader ";
+   }
+};
+
+(async () => {
+    for await (let elm of asyneItaretor){
+        console.log(elm)
+    }
+})()
