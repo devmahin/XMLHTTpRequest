@@ -111,3 +111,43 @@
 
 
 /////genaretor asyne await
+
+function takeOrder (costomer){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(`Order taken for ${costomer}`)
+        }, 1000);
+    })
+}
+
+function procesOrder (costomer){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(`Order progress for ${costomer}`)
+        }, 1000);
+    })
+}
+
+function completedOrder (costomer){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(`Order complete for ${costomer}`)
+        }, 1000);
+    })
+}
+
+
+async function* solution(customer){
+    yield await takeOrder(customer)
+    yield await procesOrder(customer)
+    yield await completedOrder(customer)
+}
+
+let gen = solution("mahin")
+// console.log(gen.next())
+gen.next().then(({value}) =>
+    console.log(value))
+gen.next().then(({value}) =>
+    console.log(value))
+gen.next().then(({value}) =>
+    console.log(value))
